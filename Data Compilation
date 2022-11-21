@@ -1,0 +1,121 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "1da09cab-635a-48b0-86e7-e5c2525dffea",
+   "metadata": {},
+   "source": [
+    "## Data Compilation"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "7a83451e-d66e-462d-ac29-80c75a7ffbde",
+   "metadata": {
+    "tags": []
+   },
+   "source": [
+    "### Procedural Overview\n",
+    "\n",
+    "The purpose of this tutorial is to help you create and export your own specialized subset of data through JupyterLab.  \n",
+    "\n",
+    "### Getting Started\n",
+    "\n",
+    "- The first step in this process is choosing your dataset. For the purposes of this tutorial, I will be using the County Public Health Data Set.\n",
+    "- Create an easily accessible folder on your laptop where your data set can be stored.\n",
+    "- Save the data set you chose as a CSV file on your laptop. The file needs to be a CSV file to help make it easier to work with Jupyter Lab. \n",
+    "- Open Jupyter Lab and create a new file.\n",
+    "\n",
+    "### Uploading & Linking Your File\n",
+    "- The next step is to upload pandas onto your file. Pandas make it easier to format information into datasets formats we are familiar with, such as bullet points and graphs. Import pandas and numpy and define it with the short forms pd and np as seen below.\n",
+    "\n",
+    "import pandas as pd\n",
+    "\n",
+    "import numpy as np\n",
+    "\n",
+    "- Next, you will want to upload the raw data set you've saved into your Jupyter Lab file. You can do this by typing in rawdata=pd.read_csv(\"name of file\"), as seen below.\n",
+    "\n",
+    "rawdata=pd.read_csv(\"CountyHealthData_2014-2015.csv\")\n",
+    "\n",
+    "- To make the file easier to use in future steps, define this file of raw data under a simpler term, like df.\n",
+    "- Label the raw data file by defining the file, as seen below.\n",
+    "\n",
+    "df=pd.read+csv(\"CountyHealthData_2014-2015.csv\")\n",
+    "\n",
+    "### Creating A Subset\n",
+    "\n",
+    "- Next, choose the specific rows and columns you want to include in your new subset. We will create a new graph that only contains the information you want to include in order to make the data easier to read and comprehend.\n",
+    "- After selecting your rows and columns, create a new subset for the data. In this example, the subset will be aclled RI_Subset. In order to create the new file, list the specific rows and columns you want specified in a bracketed list, starting with the columns, and ending with the row numbers (starting row-ending row). \n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "0c81666a-b9d8-4c36-adc0-24a2d4d4c58a",
+   "metadata": {},
+   "source": [
+    "RI_subset = df[[\"State\", \"Year\", \"County\", \"Poor physical health days\", \"Poor mental health days\"]][3245:3444]"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "de0d6496-cdcd-44b4-b3ff-f515d18c5b31",
+   "metadata": {},
+   "source": [
+    "RI_subset"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "760eea22-e469-4f64-8c48-705e53d630e4",
+   "metadata": {},
+   "source": [
+    "### Exporting Your File\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "6e944c23-dd26-4e33-ac77-71e895c97731",
+   "metadata": {},
+   "source": [
+    "- Lastly, in order to export your file and save it as a csv file, type in the name of your subset, to csv, and end it with index false, as seen below. "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "fd513038-8d7c-445a-87d8-8ce13335e7f1",
+   "metadata": {},
+   "source": [
+    "RI_subset.to_csv(\"RI_subset.csv\", index=False)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "e69ad4df-90e2-4207-83e3-d4f5a6da84c4",
+   "metadata": {},
+   "source": [
+    "### All Done! By following these steps, you should have a newly subsidized data set in the folder you created!"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.9.13"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
