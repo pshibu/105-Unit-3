@@ -1,0 +1,328 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "1da09cab-635a-48b0-86e7-e5c2525dffea",
+   "metadata": {},
+   "source": [
+    "## Data Compilation"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "7a83451e-d66e-462d-ac29-80c75a7ffbde",
+   "metadata": {
+    "tags": []
+   },
+   "source": [
+    "### Procedural Overview\n",
+    "\n",
+    "The purpose of this tutorial is to help you create and export your own specialized subset of data through JupyterLab.  \n",
+    "\n",
+    "### Getting Started\n",
+    "\n",
+    "- The first step in this process is choosing your dataset. For the purposes of this tutorial, I will be using the County Public Health Data Set.\n",
+    "- Create an easily accessible folder on your laptop where your data set can be stored.\n",
+    "- Save the data set you chose as a CSV file on your laptop. The file needs to be a CSV file to help make it easier to work with Jupyter Lab. \n",
+    "- Open Jupyter Lab and create a new file.\n",
+    "\n",
+    "### Uploading & Linking Your File\n",
+    "- The next step is to upload pandas onto your file. Pandas make it easier to format information into datasets formats we are familiar with, such as bullet points and graphs. Import pandas and numpy and define it with the short forms pd and np as seen below."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "735ceb24-156a-4823-a5de-97bb1bba9d92",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import pandas as pd\n",
+    "\n",
+    "import numpy as np\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "a97d0d41-4057-4c89-b4c1-c09b9ee9ed35",
+   "metadata": {},
+   "source": [
+    "- Next, you will want to upload the raw data set you've saved into your Jupyter Lab file. You can do this by typing in rawdata=pd.read_csv(\"name of file\"), as seen below."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 16,
+   "id": "4df9e0e4-6493-4082-bb91-3affe71e42f1",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "rawdata=pd.read_csv(\"CountyHealthData_2014-2015.csv\")\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "1c58833c-9618-45b7-9656-b7a5d3ecade1",
+   "metadata": {},
+   "source": [
+    "- To make the file easier to use in future steps, define this file of raw data under a simpler term, like df.\n",
+    "- Label the raw data file by defining the file, as seen below."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 17,
+   "id": "3f0c099e-cf1e-4d5a-b30e-b87391865009",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "df=pd.read_csv(\"CountyHealthData_2014-2015.csv\")\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "6b683b23-3bfd-4363-baae-5c05bf3c8932",
+   "metadata": {
+    "tags": []
+   },
+   "source": [
+    "### Creating A Subset\n",
+    "\n",
+    "- Next, choose the specific rows and columns you want to include in your new subset. We will create a new graph that only contains the information you want to include in order to make the data easier to read and comprehend.\n",
+    "- After selecting your rows and columns, create a new subset for the data. In this example, the subset will be aclled RI_Subset. In order to create the new file, list the specific rows and columns you want specified in a bracketed list, starting with the columns, and ending with the row numbers (starting row-ending row). "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 18,
+   "id": "31a957e7-5c9b-4fde-b70a-0abaa0f9cebd",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "RI_subset = df[[\"State\", \"Year\", \"County\", \"Poor physical health days\", \"Poor mental health days\"]][3245:3444]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 19,
+   "id": "914670f9-9e68-47d7-8109-9611c20608e7",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>State</th>\n",
+       "      <th>Year</th>\n",
+       "      <th>County</th>\n",
+       "      <th>Poor physical health days</th>\n",
+       "      <th>Poor mental health days</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>3245</th>\n",
+       "      <td>NC</td>\n",
+       "      <td>1/1/2014</td>\n",
+       "      <td>Alexander County</td>\n",
+       "      <td>4.3</td>\n",
+       "      <td>4.6</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>3246</th>\n",
+       "      <td>NC</td>\n",
+       "      <td>1/1/2015</td>\n",
+       "      <td>Alexander County</td>\n",
+       "      <td>4.3</td>\n",
+       "      <td>4.6</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>3247</th>\n",
+       "      <td>NC</td>\n",
+       "      <td>1/1/2014</td>\n",
+       "      <td>Alleghany County</td>\n",
+       "      <td>3.9</td>\n",
+       "      <td>4.4</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>3248</th>\n",
+       "      <td>NC</td>\n",
+       "      <td>1/1/2015</td>\n",
+       "      <td>Alleghany County</td>\n",
+       "      <td>3.9</td>\n",
+       "      <td>4.4</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>3249</th>\n",
+       "      <td>NC</td>\n",
+       "      <td>1/1/2014</td>\n",
+       "      <td>Anson County</td>\n",
+       "      <td>4.0</td>\n",
+       "      <td>NaN</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>...</th>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>3439</th>\n",
+       "      <td>NC</td>\n",
+       "      <td>1/1/2014</td>\n",
+       "      <td>Yadkin County</td>\n",
+       "      <td>4.1</td>\n",
+       "      <td>4.6</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>3440</th>\n",
+       "      <td>NC</td>\n",
+       "      <td>1/1/2015</td>\n",
+       "      <td>Yadkin County</td>\n",
+       "      <td>4.1</td>\n",
+       "      <td>4.6</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>3441</th>\n",
+       "      <td>NC</td>\n",
+       "      <td>1/1/2014</td>\n",
+       "      <td>Yancey County</td>\n",
+       "      <td>5.5</td>\n",
+       "      <td>4.1</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>3442</th>\n",
+       "      <td>NC</td>\n",
+       "      <td>1/1/2015</td>\n",
+       "      <td>Yancey County</td>\n",
+       "      <td>5.5</td>\n",
+       "      <td>4.1</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>3443</th>\n",
+       "      <td>ND</td>\n",
+       "      <td>1/1/2014</td>\n",
+       "      <td>Adams County</td>\n",
+       "      <td>2.5</td>\n",
+       "      <td>3.0</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "<p>199 rows × 5 columns</p>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "     State      Year            County  Poor physical health days  \\\n",
+       "3245    NC  1/1/2014  Alexander County                        4.3   \n",
+       "3246    NC  1/1/2015  Alexander County                        4.3   \n",
+       "3247    NC  1/1/2014  Alleghany County                        3.9   \n",
+       "3248    NC  1/1/2015  Alleghany County                        3.9   \n",
+       "3249    NC  1/1/2014      Anson County                        4.0   \n",
+       "...    ...       ...               ...                        ...   \n",
+       "3439    NC  1/1/2014     Yadkin County                        4.1   \n",
+       "3440    NC  1/1/2015     Yadkin County                        4.1   \n",
+       "3441    NC  1/1/2014     Yancey County                        5.5   \n",
+       "3442    NC  1/1/2015     Yancey County                        5.5   \n",
+       "3443    ND  1/1/2014      Adams County                        2.5   \n",
+       "\n",
+       "      Poor mental health days  \n",
+       "3245                      4.6  \n",
+       "3246                      4.6  \n",
+       "3247                      4.4  \n",
+       "3248                      4.4  \n",
+       "3249                      NaN  \n",
+       "...                       ...  \n",
+       "3439                      4.6  \n",
+       "3440                      4.6  \n",
+       "3441                      4.1  \n",
+       "3442                      4.1  \n",
+       "3443                      3.0  \n",
+       "\n",
+       "[199 rows x 5 columns]"
+      ]
+     },
+     "execution_count": 19,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "RI_subset"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "760eea22-e469-4f64-8c48-705e53d630e4",
+   "metadata": {},
+   "source": [
+    "### Exporting Your File\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "6e944c23-dd26-4e33-ac77-71e895c97731",
+   "metadata": {},
+   "source": [
+    "- Lastly, in order to export your file and save it as a csv file, type in the name of your subset, to csv, and end it with index false, as seen below. "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 20,
+   "id": "e6eb9818-903b-463d-b450-982e0975d4c4",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "RI_subset.to_csv(\"RI_subset.csv\", index=False)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "e69ad4df-90e2-4207-83e3-d4f5a6da84c4",
+   "metadata": {},
+   "source": [
+    "### All Done! By following these steps, you should have a newly subsidized data set in the folder you created!"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.9.13"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
