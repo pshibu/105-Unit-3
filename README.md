@@ -12,7 +12,7 @@ The repository contains:
 - The raw dataset being used for examples (labeled CountyHealthData_2014-2015)
 - An instructional file (teaching users how to upload their chosen dataset, create a subset of the data, and export it (labeled Data Compilation)
 - The new subset created through the instructional file (labeled RI_subset)
-- A visual example of the subsidized information (labeled RI-subset Data Visualization)
+- Two visual example of the subsidized information (labeled Physical Health and Mental Health)
 
 
 ## Data Usage and Replication
