@@ -20,7 +20,7 @@ The repository contains:
 The raw data used throughout this repository came through the County Health Public Database provided to use by Professor Gotzler. The subset of data and data visualizations created from the raw data were created in order to provide a simplified set of data focused on two singular subjects; The Physical Health Days vs Mental Health Days experienced by North Carolina Counties in 2015. Instructions for replicating the subset can be found in the steps laid out in Data Compilation, a file linked in the repository files. 
 
 
-##Analysis
+## Analysis
 
 In order to process the data in a more simplified, easier-to-read way, a visualization of the data was created based on the newly formed subset of County Health Public Data. The following visualizations show a visual example of Physical Health Days vs Mental Health Days taken in various counties in North Carolina in 2015.
 
