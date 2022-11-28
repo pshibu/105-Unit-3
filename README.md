@@ -13,6 +13,7 @@ The repository contains:
 - An instructional file (teaching users how to upload their chosen dataset, create a subset of the data, and export it (labeled Data Compilation)
 - The new subset created through the instructional file (labeled RI_subset)
 - Two visual example of the subsidized information (labeled Physical Health and Mental Health)
+- One README file to introduce users to the repository
 
 
 ## Data Usage and Replication
